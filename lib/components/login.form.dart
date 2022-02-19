@@ -1,24 +1,31 @@
-import 'package:ecommerce/screens/login.screen.dart';
+import 'package:ecommerce/screens/home.screen.dart';
+import 'package:ecommerce/screens/login.success.dart';
 import 'package:ecommerce/utilities/colors.dart';
 import 'package:ecommerce/utilities/common.components.dart';
+import 'package:ecommerce/utilities/error.handeler.dart';
 import 'package:ecommerce/utilities/responsive.dart';
 import 'package:flutter/material.dart';
 
-class SignUpForm extends StatefulWidget {
-  const SignUpForm({Key? key}) : super(key: key);
+class LogInForm extends StatefulWidget {
+  const LogInForm({Key? key}) : super(key: key);
 
   @override
-  _SignUpFormState createState() => _SignUpFormState();
+  _LogInFormState createState() => _LogInFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class _LogInFormState extends State<LogInForm> {
+  final _formKey = GlobalKey<FormState>();
+  String? email;
+  String? password;
+  bool? remember = false;
+  final List<String?> errors = [];
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
-          buildNameFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
@@ -30,26 +37,24 @@ class _SignUpFormState extends State<SignUpForm> {
                 activeColor: primaryColor,
                 onChanged: (value) {},
               ),
-              const Text("Accepts all our conditons"),
+              const Text("Remember me"),
               const Spacer(),
               GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, LogInScreen.routeName);
-                },
+                onTap: () {},
                 child: const Text(
-                  "Have a account ?",
-                  style: TextStyle(decoration: TextDecoration.underline),
+                  "Forgot Password",
+                  style: TextStyle(
+                      decoration: TextDecoration.underline, fontSize: 14),
                 ),
               )
             ],
           ),
+          FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(30)),
           PrimaryButton(
-            text: "Sign In",
-            press: () => {
-              // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-              // ignore: avoid_print
-              print("Pressed button")
+            text: "Login",
+            press: () {
+              Navigator.pushNamed(context, LoginSuccessScreen.routeName);
             },
           ),
         ],
@@ -81,21 +86,7 @@ TextField buildEmailFormField() {
       border: outlineInputBorder(),
       focusedBorder: focusOutlineInputBorder(),
       prefixIcon: const Icon(Icons.email),
-      suffixIcon: Icon(Icons.close),
-      prefixIconColor: primaryColor,
-    ),
-  );
-}
-
-TextField buildNameFormField() {
-  return TextField(
-    decoration: InputDecoration(
-      label: const Text("Enter Your Name"),
-      hintText: "Miloy Rahman",
-      border: outlineInputBorder(),
-      focusedBorder: focusOutlineInputBorder(),
-      prefixIcon: const Icon(Icons.person),
-      suffixIcon: Icon(Icons.close),
+      suffixIcon: const Icon(Icons.close),
       prefixIconColor: primaryColor,
     ),
   );
