@@ -7,34 +7,40 @@ class LoginSuccessHelper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Column(
-      children: [
-        SizedBox(height: SizeConfig.screenHeight * 0.04),
-        Image.asset(
-          "assets/images/success.png",
-          height: SizeConfig.screenHeight * 0.4, //40%
-        ),
-        SizedBox(height: SizeConfig.screenHeight * 0.08),
-        Text(
-          "Login Success",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(30),
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+    return Container(
+      alignment: Alignment.center,
+      // padding: EdgeInsets.all(getProportionateScreenWidth(20)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(height: SizeConfig.screenHeight * 0.04),
+          Image.asset(
+            "assets/images/success.png",
+            height: SizeConfig.screenHeight * 0.4, //40%
           ),
-        ),
-        Spacer(),
-        SizedBox(
-          width: SizeConfig.screenWidth * 0.6,
-          child: PrimaryButton(
-            text: "Back to home",
-            press: () {
-              Navigator.pushNamed(context, HomeScreen.routeName);
-            },
+          SizedBox(height: SizeConfig.screenHeight * 0.08),
+          Text(
+            "Login Success",
+            style: TextStyle(
+              fontSize: getProportionateScreenWidth(30),
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
-        ),
-        Spacer(),
-      ],
+          Spacer(),
+          SizedBox(
+            width: SizeConfig.screenWidth * 0.6,
+            child: PrimaryButton(
+              text: "Back to home",
+              press: () {
+                Navigator.pushNamed(context, HomeScreen.routeName);
+              },
+            ),
+          ),
+          Spacer(),
+        ],
+      ),
     );
   }
 }

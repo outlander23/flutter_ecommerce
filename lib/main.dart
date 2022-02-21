@@ -1,4 +1,5 @@
 import 'package:ecommerce/routes/routes.dart';
+import 'package:ecommerce/screens/home.screen.dart';
 import 'package:ecommerce/screens/login.success.dart';
 import 'package:ecommerce/screens/splash.screen.dart';
 import 'package:ecommerce/utilities/theme.dart';
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce',
       theme: theme(),
-      // home: SplashScreen(),
-      home: LoginSuccessScreen(),
+      home: SplashScreen(),
+      // home: Home(),
+      // home: HomeScreen(),
       routes: routes,
     );
   }

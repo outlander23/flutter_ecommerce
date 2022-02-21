@@ -1,3 +1,10 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce/components/catagories.dart';
+import 'package:ecommerce/components/discount.dart';
+import 'package:ecommerce/components/discount.parent.dart';
+import 'package:ecommerce/components/header.homescreen.dart';
+import 'package:ecommerce/utilities/responsive.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBody extends StatefulWidget {
@@ -10,9 +17,16 @@ class HomePageBody extends StatefulWidget {
 class _HomePageBodyState extends State<HomePageBody> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [Text("djsfojds"), Text("kdsjflsdjfjkds")],
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: getProportionateScreenHeight(20)),
+            HomeHeader(),
+            DiscountParent(),
+            Categories(),
+          ],
+        ),
       ),
     );
   }

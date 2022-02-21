@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      body: Container(
+      body: SizedBox(
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,14 +44,15 @@ class _SplashScreenState extends State<SplashScreen> {
               Expanded(
                 flex: 4,
                 child: PageView.builder(
+                  scrollDirection: Axis.horizontal,
+                  reverse: false,
                   onPageChanged: (value) {
                     setState(() {
                       currentPage = value;
                     });
                   },
-                  physics: BouncingScrollPhysics(),
                   itemCount: splashScreenData.length,
-                  itemBuilder: (BuildContext context, int index) {
+                  itemBuilder: (context, index) {
                     return SplashContent(
                       image: splashScreenData[index]["image"],
                       text: splashScreenData[index]['text'],
@@ -67,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Spacer(),
+                      const Spacer(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(
@@ -76,14 +77,14 @@ class _SplashScreenState extends State<SplashScreen> {
                               index: index, currentPage: currentPage),
                         ),
                       ),
-                      Spacer(flex: 3),
+                      const Spacer(flex: 3),
                       PrimaryButton(
                         text: "Let's Explore",
                         press: () {
                           Navigator.pushNamed(context, LogInScreen.routeName);
                         },
                       ),
-                      Spacer(),
+                      const Spacer(),
                     ],
                   ),
                 ),

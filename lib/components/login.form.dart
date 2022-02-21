@@ -1,5 +1,6 @@
 import 'package:ecommerce/screens/home.screen.dart';
 import 'package:ecommerce/screens/login.success.dart';
+import 'package:ecommerce/screens/signup.screen.dart';
 import 'package:ecommerce/utilities/colors.dart';
 import 'package:ecommerce/utilities/common.components.dart';
 import 'package:ecommerce/utilities/error.handeler.dart';
