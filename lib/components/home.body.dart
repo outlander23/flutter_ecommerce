@@ -4,6 +4,7 @@ import 'package:ecommerce/components/catagories.dart';
 import 'package:ecommerce/components/discount.dart';
 import 'package:ecommerce/components/discount.parent.dart';
 import 'package:ecommerce/components/header.homescreen.dart';
+import 'package:ecommerce/components/products.parent.dart';
 import 'package:ecommerce/utilities/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class _HomePageBodyState extends State<HomePageBody> {
             HomeHeader(),
             DiscountParent(),
             Categories(),
+            PopularProducts()
           ],
         ),
       ),
